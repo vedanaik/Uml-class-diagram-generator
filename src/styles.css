@@ -1,0 +1,832 @@
+.code-workspace {
+  flex: 1;
+  min-height: 0;
+
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr);
+}
+
+
+/* =========================
+   PROJECT EXPLORER
+========================= */
+
+.explorer {
+  border-right: 1px solid #242830;
+  background: #0e1115;
+
+  overflow-y: auto;
+}
+
+
+.explorer-header {
+  height: 39px;
+
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: #727a86;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+
+  border-bottom: 1px solid #242830;
+}
+
+
+.tree-row,
+.file-row {
+  width: 100%;
+  height: 29px;
+
+  border: 0;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: #aeb5bf;
+
+  font-size: 11px;
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+
+.tree-row:hover,
+.file-row:hover {
+  background: #171b22;
+}
+
+
+.file-row.selected {
+  background: #1c2430;
+  color: white;
+}
+
+
+.file-row {
+  padding-right: 8px;
+}
+
+
+.readme {
+  color: #858d98;
+}
+
+
+/* =========================
+   CODE EDITOR
+========================= */
+
+.editor {
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #0b0d10;
+}
+
+
+.editor-tabbar {
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #242830;
+
+  background: #0e1115;
+}
+
+
+.editor-file {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 0 14px;
+
+  font-size: 11px;
+
+  color: #d5d9df;
+
+  border-right: 1px solid #242830;
+}
+
+
+.copy-btn {
+  margin-right: 9px;
+
+  height: 27px;
+
+  padding: 0 9px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 10px;
+
+  border: 1px solid #303640;
+
+  background: #151920;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+
+.copy-btn:hover {
+  background: #1c2129;
+}
+
+
+.code-content {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow: auto;
+
+  padding: 18px 22px;
+}
+
+
+.code-content pre {
+  margin: 0;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 12px;
+
+  line-height: 1.75;
+
+  color: #d7dbe1;
+
+  white-space: pre;
+}
+
+
+.empty-code {
+  color: #737b87;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   GENERAL LAYOUT
+========================= */
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color: #e6e8eb;
+
+  background: #0b0d10;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+
+  min-width: 1100px;
+
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+
+button {
+  color: inherit;
+}
+
+
+.app {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #0b0d10;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar {
+  height: 62px;
+
+  border-bottom: 1px solid #242830;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 18px;
+
+  background: #0e1115;
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 9px;
+
+  display: grid;
+  place-items: center;
+
+  background: #1b2028;
+
+  border: 1px solid #303640;
+}
+
+
+.brand-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.brand-subtitle {
+  font-size: 11px;
+
+  color: #858d99;
+
+  margin-top: 2px;
+}
+
+
+.top-actions {
+  display: flex;
+  gap: 8px;
+}
+
+
+.ghost-btn,
+.primary-btn {
+  height: 34px;
+
+  padding: 0 12px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  font-size: 12px;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+
+.ghost-btn {
+  background: #151920;
+
+  border: 1px solid #303640;
+}
+
+
+.primary-btn {
+  background: #e7e9ec;
+
+  color: #111318;
+
+  border: 1px solid #e7e9ec;
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   WORKSPACE
+========================= */
+
+.workspace {
+  flex: 1;
+
+  min-height: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    205px
+    minmax(0, 1fr)
+    310px;
+}
+
+
+/* =========================
+   PANELS
+========================= */
+
+.left-panel,
+.right-panel {
+  background: #101318;
+
+  min-height: 0;
+
+  border-right: 1px solid #242830;
+}
+
+
+.right-panel {
+  border-right: 0;
+
+  border-left: 1px solid #242830;
+}
+
+
+.panel-heading {
+  height: 48px;
+
+  padding: 0 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid #242830;
+
+  text-transform: uppercase;
+
+  letter-spacing: .06em;
+
+  font-size: 10px;
+
+  color: #9ba2ad;
+
+  font-weight: 700;
+}
+
+
+.icon-btn,
+.danger-icon,
+.mini-add,
+.row-delete {
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #303640;
+
+  background: #151920;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+
+.icon-btn {
+  width: 27px;
+  height: 27px;
+}
+
+
+.danger-icon {
+  width: 27px;
+  height: 27px;
+
+  color: #e17a7a;
+}
+
+
+/* =========================
+   CLASS LIST
+========================= */
+
+.class-list {
+  padding: 8px;
+}
+
+
+.class-item {
+  width: 100%;
+
+  height: 35px;
+
+  border: 0;
+
+  background: transparent;
+
+  border-radius: 6px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 9px;
+
+  color: #aab1bc;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  font-size: 12px;
+}
+
+
+.class-item:hover {
+  background: #171b22;
+
+  color: #e2e5e8;
+}
+
+
+.class-item.active {
+  background: #1c222b;
+
+  color: white;
+}
+
+
+/* =========================
+   DIAGRAM
+========================= */
+
+.main-panel {
+  min-width: 0;
+
+  min-height: 0;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+.tabs {
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 3px;
+
+  border-bottom: 1px solid #242830;
+
+  padding: 0 10px;
+
+  background: #101318;
+}
+
+
+.tab {
+  height: 32px;
+
+  padding: 0 12px;
+
+  border: 0;
+
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #7f8793;
+
+  cursor: pointer;
+
+  font-size: 12px;
+
+  border-radius: 6px;
+}
+
+
+.tab.active {
+  background: #1b2028;
+
+  color: white;
+}
+
+
+.diagram-area {
+  flex: 1;
+
+  min-height: 0;
+
+  background: #0b0d10;
+}
+
+
+/* =========================
+   UML NODE
+========================= */
+
+.uml-node {
+  min-width: 230px;
+
+  background: #11151b;
+
+  border: 1px solid #4a515d;
+
+  border-radius: 7px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 10px 28px
+    rgba(0, 0, 0, .22);
+}
+
+
+.uml-header {
+  padding: 10px 14px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #3a404a;
+
+  background: #171c23;
+}
+
+
+.uml-header strong {
+  font-size: 13px;
+}
+
+
+.stereotype {
+  font-size: 10px;
+
+  color: #89919e;
+
+  margin-bottom: 2px;
+}
+
+
+.uml-section {
+  padding: 8px 12px;
+
+  border-bottom: 1px solid #333943;
+}
+
+
+.uml-section:last-child {
+  border-bottom: 0;
+}
+
+
+.uml-line {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  font-size: 10px;
+
+  line-height: 18px;
+
+  color: #c3c8cf;
+
+  white-space: nowrap;
+}
+
+
+.uml-handle {
+  width: 7px;
+  height: 7px;
+
+  background: #9ca3af;
+
+  border: 0;
+}
+
+
+/* =========================
+   PROPERTIES
+========================= */
+
+.properties {
+  padding: 14px;
+
+  overflow: auto;
+
+  height: calc(100% - 48px);
+}
+
+
+.properties label {
+  display: block;
+
+  margin: 12px 0 6px;
+
+  font-size: 10px;
+
+  color: #818995;
+
+  text-transform: uppercase;
+
+  letter-spacing: .06em;
+}
+
+
+.properties input,
+.properties select {
+  width: 100%;
+
+  height: 32px;
+
+  border-radius: 6px;
+
+  border: 1px solid #303640;
+
+  background: #151920;
+
+  color: #e1e4e8;
+
+  outline: none;
+
+  padding: 0 9px;
+
+  font-size: 11px;
+}
+
+
+.section-title {
+  margin-top: 18px;
+
+  padding-bottom: 7px;
+
+  border-bottom: 1px solid #292e36;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  color: #c2c7cf;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.mini-add {
+  width: 24px;
+  height: 24px;
+}
+
+
+.editor-row {
+  display: grid;
+
+  grid-template-columns:
+    39px
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    25px;
+
+  gap: 5px;
+
+  margin-top: 7px;
+}
+
+
+.editor-row select,
+.editor-row input {
+  height: 29px !important;
+
+  padding: 0 6px !important;
+
+  font-size: 10px !important;
+}
+
+
+.row-delete {
+  width: 25px;
+
+  height: 29px;
+
+  color: #747c87;
+}
+
+
+.method-card {
+  margin-top: 7px;
+
+  padding-bottom: 6px;
+
+  border-bottom: 1px solid #242830;
+}
+
+
+.method-subrow {
+  display: grid;
+
+  grid-template-columns:
+    .75fr
+    1.25fr;
+
+  gap: 5px;
+
+  margin:
+    5px 0 0 44px;
+}
+
+
+.method-subrow input {
+  height: 29px !important;
+
+  font-size: 10px !important;
+}
+
+
+.empty-properties {
+  padding: 18px 14px;
+
+  color: #6e7681;
+
+  font-size: 11px;
+}
+
+
+/* React Flow */
+
+.react-flow__controls {
+  box-shadow: none;
+
+  border: 1px solid #303640;
+}
+
+
+.react-flow__controls-button {
+  background: #151920;
+
+  border-bottom: 1px solid #303640;
+
+  color: #ddd;
+}
+
+
+.react-flow__minimap {
+  background: #11151b;
+
+  border: 1px solid #303640;
+}
